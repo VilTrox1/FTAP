@@ -1,5 +1,6 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 local sources = {}
+sources.Library = [====[
 local requireModule = ...
 local cloneref = (cloneref or clonereference or function(instance: any)
     return instance
@@ -43361,6 +43362,8 @@ Rejoined: %rejoinedPlayer%, %listCount%]],
 		copyright = "Copyright (c) 2026 Project Resonance. All rights reserved.",
 	}
 end
+]====]
+sources.Bootstrap = [====[
 local sources = ...
 local env = getgenv and getgenv() or _G
 if env.ResonanceRunning or env.ResonanceStarting then
@@ -43421,6 +43424,8 @@ if not ok then
     return nil, result
 end
 return result
+]====]
+sources.Notices = [====[
 Copyright (c) 2026 Project Resonance. All rights reserved.
 
 MIT License
@@ -43467,6 +43472,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+]====]
 local loadedFunction, message = loadstring(sources.Bootstrap, "@Resonance/Bootstrap")
 assert(loadedFunction, message)
 return loadedFunction(sources)
